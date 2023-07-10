@@ -383,7 +383,7 @@ const boardElement = siteMainElement.querySelector(".board");
 
 render(taskListElement, createTaskEditTemplate());
 
-const TASK_COUNT = 2;
+const TASK_COUNT = 3;
 for (let i = 0; i < TASK_COUNT; i++) {
   render(taskListElement, createTaskTemplate());
 }
