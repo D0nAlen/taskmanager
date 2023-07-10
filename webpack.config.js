@@ -9,7 +9,7 @@ module.exports = {
   },
   devtool: `source-map`, //подключаем sourcemaps'
   devServer: {
-    contentBase: path.join(__dirName, `public`),
+    contentBase: path.join(__dirname, `public`),
     watchContentBase: true
   }
 };
