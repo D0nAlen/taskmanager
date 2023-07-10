@@ -1,1 +1,1 @@
-webpack-dev-server --open
+webpack-dev-server --open;
