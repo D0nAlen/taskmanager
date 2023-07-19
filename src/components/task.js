@@ -1,18 +1,57 @@
-export const createTaskTemplate = () => {
-    return `
-      <article class="card card--black">
+export const createTaskTemplate = (task) => {
+  const {} = task;
+
+  // const DESCRIPTION = [
+  //   "Изучить теорию",
+  //   "Сделать домашку",
+  //   "Пройти интенсив на соточку",
+  // ];
+  const color = ["black", "yellow", "blue", "green", "pink"];
+  const date = `23 September`;
+  const time = `16:15`;
+  const isArchive = false;
+  const isFavourite = false;
+
+  const repeatClass = `card--repeat`;
+  const deadlineClass = `card--deadline`;
+  const archiveButtonInactiveClass = isArchive ? `` : `card__btn--disabled`;
+  const favouriteButtonInactiveClass = isFavourite ? `` : `card__btn--disabled`;
+// time lection: 02:29
+
+  // const DEFAULT_COLOR = "black";
+
+  // const task = {
+  //   description: DESCRIPTION[2],
+  //   dueDate: "18-07-2023",
+  //   repeatingDays: {
+  //     mo: true,
+  //     tu: false,
+  //     we: false,
+  //     th: false,
+  //     fr: false,
+  //     sa: true,
+  //     su: true,
+  //   },
+  //   color: color[1],
+  //   isFavourite: true,
+  //   isArchive: false,
+  //   isDeadLine: false,
+  // };
+
+  return `
+      <article class="card card--${color} ${repeatClass} ${deadlineClass}">
       <div class="card__form">
         <div class="card__inner">
           <div class="card__control">
             <button type="button" class="card__btn card__btn--edit">
               edit
             </button>
-            <button type="button" class="card__btn card__btn--archive">
+            <button type="button" class="card__btn card__btn--archive ${archiveButtonInactiveClass}">
               archive
             </button>
             <button
               type="button"
-              class="card__btn card__btn--favorites card__btn--disabled"
+              class="card__btn card__btn--favorites ${favouriteButtonInactiveClass}"
             >
               favorites
             </button>
@@ -44,4 +83,4 @@ export const createTaskTemplate = () => {
       </div>
     </article>
       `;
-  };
+};
