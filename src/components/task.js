@@ -72,8 +72,8 @@ export const createTaskTemplate = (task) => {
               <div class="card__dates">
                 <div class="card__date-deadline">
                   <p class="card__input-deadline-wrap">
-                    <span class="card__date">23 September</span>
-                    <span class="card__time">16:15</span>
+                    <span class="card__date">${date}</span>
+                    <span class="card__time">${time}</span>
                   </p>
                 </div>
               </div>
