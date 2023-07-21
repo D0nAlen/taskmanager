@@ -51,8 +51,8 @@ export const createTaskEditTemplate = (task) => {
     ? `${dueDate.getDate()} ${MONTH_NAMES[dueDate.getMonth()]}`
     : ``;
   const time = isDateShowing ? formatTime(dueDate) : ``;
-
-  const repeatClass = `card--repeat`;
+  const isRepeatingTask = Object.values(repeatingDays).some(Boolean);
+  const repeatClass = isRepeatingTask ? `card--repeat` : ``;
   const deadlineClass = isExpired ? `card--deadline` : ``;
 
   const colorsMarkup = createColorsMarkup(COLORS, color);
