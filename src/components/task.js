@@ -1,42 +1,23 @@
+import { MONTH_NAMES } from "../const.js";
+import { formatTime } from "../utils.js";
+
 export const createTaskTemplate = (task) => {
-  const {} = task;
+  const { description, dueDate, color, repeatingDays, isArchive, isFavourite } =
+    task;
 
-  // const DESCRIPTION = [
-  //   "Изучить теорию",
-  //   "Сделать домашку",
-  //   "Пройти интенсив на соточку",
-  // ];
-  const color = ["black", "yellow", "blue", "green", "pink"];
-  const date = `23 September`;
-  const time = `16:15`;
-  const isArchive = false;
-  const isFavourite = false;
+  const isExpired = dueDate instanceof Date && dueDate < Date.now();
+  const isDateShowing = !!dueDate;
 
-  const repeatClass = `card--repeat`;
-  const deadlineClass = `card--deadline`;
+  const date = isDateShowing
+    ? `${dueDate.getDate()} ${MONTH_NAMES[dueDate.getMonth()]}`
+    : ``;
+  const time = isDateShowing ? formatTime(dueDate) : ``;
+
+  const repeatClass = Object.values(repeatingDays).some(Boolean) ? `card--repeat` : ``;
+  const deadlineClass = isExpired ? `card--deadline` : ``;
+
   const archiveButtonInactiveClass = isArchive ? `` : `card__btn--disabled`;
   const favouriteButtonInactiveClass = isFavourite ? `` : `card__btn--disabled`;
-// time lection: 02:29
-
-  // const DEFAULT_COLOR = "black";
-
-  // const task = {
-  //   description: DESCRIPTION[2],
-  //   dueDate: "18-07-2023",
-  //   repeatingDays: {
-  //     mo: true,
-  //     tu: false,
-  //     we: false,
-  //     th: false,
-  //     fr: false,
-  //     sa: true,
-  //     su: true,
-  //   },
-  //   color: color[1],
-  //   isFavourite: true,
-  //   isArchive: false,
-  //   isDeadLine: false,
-  // };
 
   return `
       <article class="card card--${color} ${repeatClass} ${deadlineClass}">
@@ -64,7 +45,7 @@ export const createTaskTemplate = (task) => {
           </div>
   
           <div class="card__textarea-wrap">
-            <p class="card__text">Example task with default color.</p>
+            <p class="card__text">${description}</p>
           </div>
   
           <div class="card__settings">

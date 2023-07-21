@@ -8,7 +8,6 @@ import { createLoadMoreButtonTemplate } from "./components/loadMoreButton.js";
 import { generateFilters } from "./mock/filter.js";
 import { generateTasks } from "./mock/task.js";
 
-//2:26 лекция
 const TASK_COUNT = 8;
 
 const render = (container, template, place = "beforeend") => {
@@ -18,8 +17,9 @@ const render = (container, template, place = "beforeend") => {
 const siteMainElement = document.querySelector(".main");
 const siteHeaderElement = siteMainElement.querySelector(".main__control");
 
-const tasks = generateTasks(TASK_COUNT);
 const filters = generateFilters();
+const tasks = generateTasks(TASK_COUNT);
+
 
 render(siteHeaderElement, createSiteMenuTemplate());
 render(siteMainElement, createFilterTemplate(filters));
