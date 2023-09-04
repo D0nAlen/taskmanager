@@ -1,4 +1,4 @@
-import {createElement, creeateElement} from "../utils.js";
+import {createElement} from "../utils.js";
 
 const createSiteMenuTemplate = () => {
     return `
