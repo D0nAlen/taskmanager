@@ -138,7 +138,7 @@ const createTaskEditTemplate = (task) => {
       `;
 };
 
-export default class TaskEdit {
+export default class TaskEditComponent {
   constructor(task) {
     this._task = task;
     this._element = null;

@@ -6,7 +6,7 @@ const createLoadMoreButtonTemplate = () => {
         `;
 };
 
-export default class loadMoreButton {
+export default class LoadMoreButtonComponent {
   constructor() {
     this._element = null;
   }

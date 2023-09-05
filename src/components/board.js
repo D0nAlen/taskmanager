@@ -5,7 +5,7 @@ const createBoardTemplate = () => {
       <section class="board container"></section>`;
 };
 
-export default class Board {
+export default class BoardComponent {
   constructor() {
     this._element = null;
   }

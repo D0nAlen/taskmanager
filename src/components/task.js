@@ -2,22 +2,16 @@ import { MONTH_NAMES } from "../const.js";
 import { formatTime } from "../utils.js";
 
 const createTaskTemplate = (task) => {
-  const { description, dueDate, color, repeatingDays, isArchive, isFavourite } =
-    task;
+  const { description, dueDate, color, repeatingDays, isArchive, isFavourite } = task;
 
   const isExpired = dueDate instanceof Date && dueDate < Date.now();
   const isDateShowing = !!dueDate;
 
-  const date = isDateShowing
-    ? `${dueDate.getDate()} ${MONTH_NAMES[dueDate.getMonth()]}`
-    : ``;
+  const date = isDateShowing ? `${dueDate.getDate()} ${MONTH_NAMES[dueDate.getMonth()]}` : ``;
   const time = isDateShowing ? formatTime(dueDate) : ``;
 
-  const repeatClass = Object.values(repeatingDays).some(Boolean)
-    ? `card--repeat`
-    : ``;
+  const repeatClass = Object.values(repeatingDays).some(Boolean) ? `card--repeat` : ``;
   const deadlineClass = isExpired ? `card--deadline` : ``;
-
   const archiveButtonInactiveClass = isArchive ? `` : `card__btn--disabled`;
   const favouriteButtonInactiveClass = isFavourite ? `` : `card__btn--disabled`;
 
@@ -68,7 +62,7 @@ const createTaskTemplate = (task) => {
       `;
 };
 
-export default class Task {
+export default class TaskComponent {
   constructor(task) {
     this._task = task;
     this._element = null;

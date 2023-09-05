@@ -33,7 +33,7 @@ const createSiteMenuTemplate = () => {
       `;
   };
 
-  export default class SiteMenu {
+  export default class SiteMenuComponent {
     constructor(){
       this._element = null;
     }
