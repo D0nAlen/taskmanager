@@ -1,5 +1,5 @@
 import { MONTH_NAMES } from "../const.js";
-import { formatTime } from "../utils.js";
+import { createElement, formatTime } from "../utils.js";
 
 const createTaskTemplate = (task) => {
   const { description, dueDate, color, repeatingDays, isArchive, isFavourite } = task;
@@ -13,7 +13,7 @@ const createTaskTemplate = (task) => {
   const repeatClass = Object.values(repeatingDays).some(Boolean) ? `card--repeat` : ``;
   const deadlineClass = isExpired ? `card--deadline` : ``;
   const archiveButtonInactiveClass = isArchive ? `` : `card__btn--disabled`;
-  const favouriteButtonInactiveClass = isFavourite ? `` : `card__btn--disabled`;
+  const favoriteButtonInactiveClass = isFavourite ? `` : `card__btn--disabled`;
 
   return `
       <article class="card card--${color} ${repeatClass} ${deadlineClass}">
@@ -28,7 +28,7 @@ const createTaskTemplate = (task) => {
             </button>
             <button
               type="button"
-              class="card__btn card__btn--favorites ${favouriteButtonInactiveClass}"
+              class="card__btn card__btn--favorites ${favoriteButtonInactiveClass}"
             >
               favorites
             </button>

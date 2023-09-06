@@ -9,7 +9,7 @@ import SiteMenuComponent from "./components/site-menu.js";
 import SortComponent from "./components/sort.js";
 import { generateFilters } from "./mock/filter.js";
 import { generateTasks } from "./mock/task.js";
-import { render, RenderPosition} from "./utils.js";
+import { render, RenderPosition } from "./utils.js";
 
 const TASK_COUNT = 22;
 const SHOWING_TASKS_COUNT_ON_START = 8;
@@ -33,7 +33,6 @@ const renderTask = (taskListElement, task) => {
     }
   };
 
-
   const taskComponent = new TaskComponent(task);
   const editButton = taskComponent.getElement().querySelector(".card__btn--edit");
   editButton.addEventListener(`click`, () => {
@@ -53,12 +52,12 @@ const renderTask = (taskListElement, task) => {
 };
 
 const renderBoard = (boardComponent, tasks) => {
-// const isAllTasksArchived = tasks.every((task)=> task.isArchive);
+  // const isAllTasksArchived = tasks.every((task)=> task.isArchive);
 
-// if(isAllTasksArchived){
-//   render(boardComponent.getElement(), new NoTasksComponent().getElement(), RenderPosition.BEFOREEND);
-//   return;
-// }
+  // if(isAllTasksArchived){
+  //   render(boardComponent.getElement(), new NoTasksComponent().getElement(), RenderPosition.BEFOREEND);
+  //   return;
+  // }
 
   render(boardComponent.getElement(), new SortComponent().getElement(), RenderPosition.BEFOREEND);
   render(boardComponent.getElement(), new TasksComponent().getElement(), RenderPosition.BEFOREEND);
@@ -91,13 +90,12 @@ const renderBoard = (boardComponent, tasks) => {
 const siteMainElement = document.querySelector(".main");
 const siteHeaderElement = siteMainElement.querySelector(".main__control");
 
-const filters = generateFilters();
 const tasks = generateTasks(TASK_COUNT);
+const filters = generateFilters();
 
 render(siteHeaderElement, new SiteMenuComponent().getElement(), RenderPosition.BEFOREEND);
 
 render(siteMainElement, new FilterComponent(filters).getElement(), RenderPosition.BEFOREEND);
-
 const boardComponent = new BoardComponent();
 render(siteMainElement, boardComponent.getElement(), RenderPosition.BEFOREEND);
 renderBoard(boardComponent, tasks);
