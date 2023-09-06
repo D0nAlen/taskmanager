@@ -6,10 +6,10 @@ import TaskComponent from "./components/task.js";
 import TasksComponent from "./components/tasks.js";
 // import NoTasksComponent from "./components/no-tasks.js";
 import SiteMenuComponent from "./components/site-menu.js";
-import SortComponent from "./components/board.js";
+import SortComponent from "./components/sort.js";
 import { generateFilters } from "./mock/filter.js";
 import { generateTasks } from "./mock/task.js";
-import { render, RenderPosition } from "./utils.js";
+import { render, RenderPosition} from "./utils.js";
 
 const TASK_COUNT = 22;
 const SHOWING_TASKS_COUNT_ON_START = 8;
