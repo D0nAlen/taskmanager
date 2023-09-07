@@ -1,9 +1,7 @@
 import { createElement } from "../utils.js";
 
 const createTasksTemplate = () => {
-  return `
-    <div class="board__tasks"></div>
-    `;
+  return `<div class="board__tasks"></div>`;
 };
 
 export default class TasksComponent {

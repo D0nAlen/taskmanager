@@ -15,8 +15,7 @@ const createTaskTemplate = (task) => {
   const archiveButtonInactiveClass = isArchive ? `` : `card__btn--disabled`;
   const favoriteButtonInactiveClass = isFavourite ? `` : `card__btn--disabled`;
 
-  return `
-      <article class="card card--${color} ${repeatClass} ${deadlineClass}">
+  return `<article class="card card--${color} ${repeatClass} ${deadlineClass}">
       <div class="card__form">
         <div class="card__inner">
           <div class="card__control">

@@ -1,8 +1,7 @@
 import {createElement} from "../utils.js";
 
 const createSiteMenuTemplate = () => {
-    return `
-      <section class="control__btn-wrap">
+    return `<section class="control__btn-wrap">
       <input
         type="radio"
         name="control"

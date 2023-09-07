@@ -19,6 +19,7 @@ export const createElement = (template) => {
   newElement.innerHTML = template;
 
   return newElement.firstChild;
+  // return newElement;
 };
 
 export const render = (container, element, place) => {
