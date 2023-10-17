@@ -3,7 +3,7 @@ import TaskEditComponent from "../components/task-edit.js";
 import TaskComponent from "../components/task.js";
 import TasksComponent from "../components/tasks.js";
 import NoTasksComponent from "../components/no-tasks.js";
-import SortComponent from "../components/sort.js";
+import SortComponent, { SortType } from "../components/sort.js";
 import { render, replace, remove, RenderPosition } from "../utils/render.js";
 
 const SHOWING_TASKS_COUNT_ON_START = 8;
@@ -31,21 +31,41 @@ const renderTask = (taskListElement, task) => {
     const taskEditComponent = new TaskEditComponent(task);
 
     taskComponent.setEditButtonClickHandler(() => {
-        // const editButton = taskComponent.getElement().querySelector(".card__btn--edit");
-        // editButton.addEventListener(`click`, () => {
         replaceTaskToEdit();
         document.addEventListener(`keydown`, onEscKeyDown);
     });
 
     taskEditComponent.setSubmitHandler((evt) => {
-        // const editForm = taskEditComponent.getElement().querySelector(`form`);
-        // editForm.addEventListener(`submit`, (evt) => {
         evt.preventDefault();
         replaceEditToTask();
         document.removeEventListener(`keydown`, onEscKeyDown);
     });
 
     render(taskListElement, taskComponent, RenderPosition.BEFOREEND);
+};
+
+const renderTasks = (taskListElement, tasks) => {
+    tasks.forEach((task) => {
+        renderTask(taskListElement, task);
+    });
+};
+
+const getSortedTasks = (tasks, sortType, from, to) => {
+    let sortedTasks = [];
+    const showingTasks = [...tasks];//tasks.slice();
+
+    switch (sortType) {
+        case SortType.DATE_UP:
+            sortedTasks = showingTasks.sort((a, b) => a.dueDate - b.dueDate);
+            break;
+        case SortType.DATE_DOWN:
+            sortedTasks = showingTasks.sort((a, b) => b.dueDate - a.dueDate);
+            break;
+        case SortType.DEFAULT:
+            sortedTasks = showingTasks;
+            break;
+    }
+    return sortedTasks.slice(from, to);
 };
 
 export default class BoardController {
@@ -94,10 +114,10 @@ export default class BoardController {
         const taskListElement = this._tasksComponent.getElement();
 
         let showingTasksCount = SHOWING_TASKS_COUNT_ON_START;
-        tasks.slice(0, showingTasksCount).forEach((task) => {
-            renderTask(taskListElement, task);
-        });
-
+        renderTasks(taskListElement, tasks.slice(0, showingTasksCount));
+        // tasks.slice(0, showingTasksCount).forEach((task) => {
+        //     renderTask(taskListElement, task);
+        // });
         renderLoadMoreButton();
 
         this._sortComponent.setSortTypeChangeHandler((sortType) => {
@@ -107,10 +127,10 @@ export default class BoardController {
 
             taskListElement.innerHTML = ``;
 
-            sortedTasks.slice(0, showingTasksCount).forEach((task) => {
-                renderTask(taskListElement, task);
-            });
-
+            renderTasks(taskListElement, sortedTasks);
+            // sortedTasks.slice(0, showingTasksCount).forEach((task) => {
+            //     renderTask(taskListElement, task);
+            // });
             renderLoadMoreButton();
         });
     }
