@@ -3,8 +3,7 @@ import AbstractComponent from "./abstract-component.js";
 const createFilterMarkup = (filter, isChecked) => {
   const { name, count } = filter;
 
-  return `
-      <input
+  return `<input
         type="radio"
         id="filter__${name}"
         class="filter__input visually-hidden"
