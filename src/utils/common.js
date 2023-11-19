@@ -8,3 +8,10 @@ export const formatTime = (date) => {
 
   return `${hours} : ${minutes}`;
 };
+
+// export const formatDate = (date) => {
+//   const day = castTimeFormat(Date.parse(date));
+//   // const month = castTimeFormat(date.getMinutes());
+
+//   return day;
+// };
