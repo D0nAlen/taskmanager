@@ -1,6 +1,4 @@
 import LoadMoreButtonComponent from "../components/load-more-button.js";
-import TaskEditComponent from "../components/task-edit.js";
-// import TaskComponent from "../components/task.js";
 import TasksComponent from "../components/tasks.js";
 import TaskController from "./task.js";
 import NoTasksComponent from "../components/no-tasks.js";
@@ -9,41 +7,6 @@ import { render, remove, RenderPosition } from "../utils/render.js";
 
 const SHOWING_TASKS_COUNT_ON_START = 8;
 const SHOWING_TASKS_COUNT_BY_BUTTON = 8;
-
-// const renderTask = (taskListElement, task) => {
-//     const replaceTaskToEdit = () => {
-//         replace(taskEditComponent, taskComponent);
-//     };
-
-//     const replaceEditToTask = () => {
-//         replace(taskComponent, taskEditComponent);
-//     };
-
-//     const onEscKeyDown = (evt) => {
-//         const isEscKey = evt.key === `Escape` || evt.key === `Esc`;
-
-//         if (isEscKey) {
-//             replaceEditToTask();
-//             document.removeEventListener(`keydown`, onEscKeyDown);
-//         }
-//     };
-
-//     const taskComponent = new TaskComponent(task);
-//     const taskEditComponent = new TaskEditComponent(task);
-
-//     taskComponent.setEditButtonClickHandler(() => {
-//         replaceTaskToEdit();
-//         document.addEventListener(`keydown`, onEscKeyDown);
-//     });
-
-//     taskEditComponent.setSubmitHandler((evt) => {
-//         evt.preventDefault();
-//         replaceEditToTask();
-//         document.removeEventListener(`keydown`, onEscKeyDown);
-//     });
-
-//     render(taskListElement, taskComponent, RenderPosition.BEFOREEND);
-// };
 
 const renderTasks = (taskListElement, tasks, onDataChange, onViewChange) => {
     return tasks.map((task) => {
@@ -93,6 +56,7 @@ export default class BoardController {
     render(tasks) {
 
         this._tasks = tasks;
+
         const container = this._container.getElement();
         const isAllTasksArchived = this._tasks.every((task) => task.isArchive);
 
@@ -122,11 +86,10 @@ export default class BoardController {
 
         this._loadMoreButtonComponent.setClickHandler(() => {
             const prevTasksCount = this._showingTasksCount;
-
             const taskListElement = this._tasksComponent.getElement();
             this._showingTasksCount = this._showingTasksCount + SHOWING_TASKS_COUNT_BY_BUTTON;
 
-            const sortedTasks = getSortedTasks(this._tasks, this._sortComponent.getSortType(), prevTasksCount);
+            const sortedTasks = getSortedTasks(this._tasks, this._sortComponent.getSortType(), prevTasksCount, this._showingTasksCount);
             const newTasks = renderTasks(taskListElement, sortedTasks, this._onDataChange, this._onViewChange);
 
             this._showedTaskControllers = this._showedTaskControllers.concat(newTasks);
@@ -154,8 +117,9 @@ export default class BoardController {
     }
 
     _onSortTypeChange(sortType) {
-        this._showingTasksCount = SHOWING_TASKS_COUNT_BY_BUTTON;
-        const taskListElement = this._tasksComponent.getElement();
+        this._showingTasksCount = SHOWING_TASKS_COUNT_ON_START;
+
+        // const taskListElement = this._tasksComponent.getElement();
 
         const sortedTasks = getSortedTasks(this._tasks, sortType, 0, this._showingTasksCount);
 
