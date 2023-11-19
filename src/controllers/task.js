@@ -24,6 +24,8 @@ export default class TaskController {
         this._taskComponent.setArchiveButtonClickHandler(() => {
         });
 
+        this._taskComponent.setFavoritesButtonClickHandler(() => {
+        });
 
         this._taskEditComponent.setSubmitHandler((evt) => {
             evt.preventDefault();
