@@ -18,8 +18,12 @@ export default class TaskController {
 
         this._taskComponent.setEditButtonClickHandler(() => {
             this._replaceTaskToEdit();
-            document.addEventListener(`keydown`, onEscKeyDown);
+            document.addEventListener(`keydown`, this._onEscKeyDown);
         });
+
+        this._taskComponent.setArchiveButtonClickHandler(() => {
+        });
+
 
         this._taskEditComponent.setSubmitHandler((evt) => {
             evt.preventDefault();
@@ -49,5 +53,4 @@ export default class TaskController {
             document.removeEventListener(`keydown`, this._onEscKeyDown);
         }
     };
-
 }
