@@ -27,26 +27,7 @@ const createTaskTemplate = (task) => {
 
   const repeatClass = Object.values(repeatingDays).some(Boolean) ? `card--repeat` : ``;
   const deadlineClass = isExpired ? `card--deadline` : ``;
-  // const archiveButtonInactiveClass = isArchive ? `` : `card__btn--disabled`;
-  // const favoriteButtonInactiveClass = isFavourite ? `` : `card__btn--disabled`;
 
-  // return `<article class="card card--${color} ${repeatClass} ${deadlineClass}">
-  //     <div class="card__form">
-  //       <div class="card__inner">
-  //         <div class="card__control">
-  //           <button type="button" class="card__btn card__btn--edit">
-  //             edit
-  //           </button>
-  //           <button type="button" class="card__btn card__btn--archive ${archiveButtonInactiveClass}">
-  //             archive
-  //           </button>
-  //           <button
-  //             type="button"
-  //             class="card__btn card__btn--favorites ${favoriteButtonInactiveClass}"
-  //           >
-  //             favorites
-  //           </button>
-  //         </div>
   return `<article class="card card--${color} ${repeatClass} ${deadlineClass}">
   <div class="card__form">
     <div class="card__inner">

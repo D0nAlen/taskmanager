@@ -9,11 +9,11 @@ const isRepeating = (repeatingDays) => {
   return Object.values(repeatingDays).some(Boolean);
 }
 
+// !1)Реализовать выбор цвета(создать слушатель каждой кнопки с цветом)
 const createColorsMarkup = (colors, currentColor) => {
   return colors
     .map((color, index) => {
-      return `
-                          <input
+      return `<input
                             type="radio"
                             id="color-${color}-${index}"
                             class="card__color-input card__color-input--${color} visually-hidden"
@@ -34,8 +34,7 @@ const createRepeatingDaysMarkup = (days, repeatingDays) => {
   return days
     .map((day, index) => {
       const isChecked = repeatingDays[day];
-      return `
-    <input
+      return `<input
     class="visually-hidden card__repeat-day-input"
     type="checkbox"
     id="repeat-${day}-${index}"
