@@ -48,8 +48,6 @@ export default class TaskController {
             evt.preventDefault();
             this._replaceEditToTask();
         });
-
-        // render(this._container, this._taskComponent, RenderPosition.BEFOREEND);
         
         if (oldTaskEditComponent && oldTaskComponent) {
             replace(this._taskComponent, oldTaskComponent);

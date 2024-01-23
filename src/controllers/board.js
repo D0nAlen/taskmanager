@@ -4,6 +4,7 @@ import TaskController from "./task.js";
 import NoTasksComponent from "../components/no-tasks.js";
 import SortComponent, { SortType } from "../components/sort.js";
 import { render, remove, RenderPosition } from "../utils/render.js";
+// import  from "../controllers/task.js";
 
 const SHOWING_TASKS_COUNT_ON_START = 8;
 const SHOWING_TASKS_COUNT_BY_BUTTON = 8;
@@ -16,6 +17,7 @@ const renderTasks = (taskListElement, tasks, onDataChange, onViewChange) => {
         return taskController;
     });
 };
+
 const getSortedTasks = (tasks, sortType, from, to) => {
     let sortedTasks = [];
     const showingTasks = [...tasks];//tasks.slice();
@@ -94,8 +96,6 @@ export default class BoardController {
             const sortedTasks = getSortedTasks(this._tasks, this._sortComponent.getSortType(), prevTasksCount, this._showingTasksCount);
             const newTasks = renderTasks(taskListElement, sortedTasks, this._onDataChange, this._onViewChange);
 
-            console.log(newTasks);
-            
             this._showedTaskControllers = this._showedTaskControllers.concat(newTasks);
 
             if (this._showingTasksCount >= this._tasks.length) {
