@@ -23,7 +23,10 @@
     "node": "10"
   },
   "dependencies": {
+    "chart.js": "^4.4.1",
+    "chartjs-plugin-datalabels": "^2.2.0",
     "flatpickr": "^4.6.13",
+    "he": "^1.2.0",
     "moment": "^2.29.4",
     "moment-locales-webpack-plugin": "^1.2.0"
   }
