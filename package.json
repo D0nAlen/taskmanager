@@ -10,11 +10,11 @@
     "test": "npm run eslint"
   },
   "devDependencies": {
-    "css-loader": "^6.8.1",
+    "css-loader": "6.8.1",
     "eslint": "8.44.0",
     "eslint-config-htmlacademy": "9.1.1",
-    "moment-locales-webpack-plugin": "^1.2.0",
-    "style-loader": "^1.1.4",
+    "moment-locales-webpack-plugin": "1.2.0",
+    "style-loader": "1.1.4",
     "webpack": "5.88.1",
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "4.15.1"
@@ -23,11 +23,11 @@
     "node": "10"
   },
   "dependencies": {
-    "chart.js": "^4.4.1",
-    "chartjs-plugin-datalabels": "^2.2.0",
-    "flatpickr": "^4.6.13",
-    "he": "^1.2.0",
-    "moment": "^2.29.4",
-    "moment-locales-webpack-plugin": "^1.2.0"
+    "chart.js": "2.9.3",
+    "chartjs-plugin-datalabels": "0.7.0",
+    "flatpickr": "4.6.13",
+    "he": "1.2.0",
+    "moment": "2.29.4",
+    "moment-locales-webpack-plugin": "1.2.0"
   }
 }
