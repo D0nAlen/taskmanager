@@ -67,13 +67,10 @@ siteMenuComponent.setOnChange((menuItem) => {
 //     boardController.render();
 //   });
 
-// fetch('http://jsonplaceholder.typicode.com/posts')
-// .then((response) => response.json())
-// .then((data) => {
-//   console.log(data)})
-fetch('http://localhost:3333', { mode: 'no-cors' })
-  .then((response) => response.json())
+fetch('http://localhost:3333')
+  .then((response) => {
+    return response.json();
+  })
   .then((data) => {
-    // let json = JSON.parse(data);
     console.log(data);
   })
