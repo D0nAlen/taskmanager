@@ -61,16 +61,19 @@ siteMenuComponent.setOnChange((menuItem) => {
   }
 });
 
-// api.getTasks()
-//   .then((tasks) => {
-//     tasksModel.setTasks(tasks);
-//     boardController.render();
-//   });
+api.getTasks()
+  .then((tasks) => {
+    tasksModel.setTasks(tasks);
+    boardController.render();
+  })
+// .then((data) => {
+//   console.log(data);
+// })
 
-fetch('http://localhost:3333')
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    console.log(data);
-  })
+// fetch('http://localhost:3333')
+//   .then((response) => {
+//     return response.json();
+//   })
+//   .then((data) => {
+//     console.log(data);
+//   })
