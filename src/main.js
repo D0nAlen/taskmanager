@@ -66,11 +66,12 @@ api.getTasks()
     tasksModel.setTasks(tasks);
     boardController.render();
   })
-// .then((data) => {
-//   console.log(data);
-// })
 
-// fetch('http://localhost:3333')
+.then((data) => {
+  console.log(data);
+})
+
+// fetch('http://localhost:3333/tasks')
 //   .then((response) => {
 //     return response.json();
 //   })

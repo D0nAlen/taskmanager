@@ -23,13 +23,8 @@ const API = class {
   }
 
   getTasks() {
-    // const headers = new Headers();
-    // headers.append(`Authorization`, this._authorization);
-
-    // return fetch(`http://localhost:3333/`, { mode: 'no-cors', headers })
-    // .then(checkStatus)
-    return this._load({ url: `` })
-      // return this._load({ url: `tasks` })
+    // return this._load({ url: `` })
+      return this._load({ url: `tasks` })
       .then((response) => response.json())
       .then(Task.parseTasks);
 
@@ -48,12 +43,6 @@ const API = class {
   }
 
   updateTask(id, data) {
-    // const headers = new Headers();
-    // headers.append(`Authorization`, this._authorization);
-    // headers.append(`Content-Type`, `application/json`);
-
-    // return fetch(`http://localhost:3333/${id}`, {
-    // method: `PUT`,
     return this._load({
       // url: `tasks/${id}`,
       url: `/${id}`,
@@ -75,7 +64,7 @@ const API = class {
   _load({ url, method = Method.GET, body = null, headers = new Headers() }) {
     headers.append(`Authorization`, this._authorization);
 
-    return fetch(`${this._endPoint}/${url}`, { mode: 'no-cors', method, body, headers })
+    return fetch(`${this._endPoint}/${url}`, { method, body, headers })
       .then(checkStatus)
       .catch((err) => {
         throw err;
