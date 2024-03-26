@@ -6,7 +6,11 @@ export default class Task {
         this.repeatingDays = data[`repeating_days`];
         this.color = data[`color`];
         this.isFavorite = Boolean(data[`is_favorite`]);
-        this.isArchive = Boolean(data[`is_archived`]);
+        this.isArchive = Boolean(data[`is_archive`]);
+        // this.isArchive = Boolean(data[`is_archived`]);
+        
+        console.log( data[`color`]); //работает
+        console.log( data[`due_date`]); //все "составные_имена", не работают
     }
 
     toRAW() {
@@ -22,10 +26,12 @@ export default class Task {
     }
 
     static parseTask(data) {
+        console.log(data);
         return new Task(data);
     }
 
     static parseTasks(data) {
+        // console.log(data);
         return data.map(Task.parseTask);
     }
 

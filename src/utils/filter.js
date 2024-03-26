@@ -27,7 +27,11 @@ export const getOverdueTasks = (tasks, date) => {
 };
 
 export const getRepeatingTasks = (tasks) => {
-  return tasks.filter((task) => isRepeating(task.repeatingDays));
+  return tasks.filter((task) => {
+    // console.log(task);
+    isRepeating(task.repeatingDays)
+  }
+  );
 };
 
 export const getTasksInOneDay = (tasks, date) => {

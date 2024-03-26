@@ -32,8 +32,8 @@ const API = class {
 
   createTask(task) {
     return this._load({
-      // url: `tasks`,
-      url: ``,
+      url: `tasks`,
+      // url: ``,
       method: Method.POST,
       body: JSON.stringify(task.toRAW()),
       headers: new Headers({ "Content-Type": `application/json` })
@@ -44,8 +44,8 @@ const API = class {
 
   updateTask(id, data) {
     return this._load({
-      // url: `tasks/${id}`,
-      url: `/${id}`,
+      url: `tasks/${id}`,
+      // url: `/${id}`,
       method: Method.PUT,
       body: JSON.stringify(data.toRAW()),
       headers: new Headers({ "Content-Type": `application/json` })
@@ -56,8 +56,8 @@ const API = class {
   }
 
   deleteTask(id) {
-    // return this._load({ url: `tasks/${id}`, method: Method.DELETE });
-    return this._load({ url: `/${id}`, method: Method.DELETE });
+    return this._load({ url: `tasks/${id}`, method: Method.DELETE });
+    // return this._load({ url: `/${id}`, method: Method.DELETE });
   }
 
 

@@ -17,6 +17,7 @@ export const formatDate = (date) => {
 };
 
 export const isRepeating = (repeatingDays) => {
+  // console.log(repeatingDays);
   return Object.values(repeatingDays).some(Boolean);
 };
 

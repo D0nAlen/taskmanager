@@ -67,10 +67,11 @@ api.getTasks()
     boardController.render();
   })
 
-.then((data) => {
-  console.log(data);
-})
+// .then((data) => {
+//   console.log(data);
+// })
 
+//////////////////////////////////////////////
 // fetch('http://localhost:3333/tasks')
 //   .then((response) => {
 //     return response.json();
