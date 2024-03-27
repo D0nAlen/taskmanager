@@ -24,11 +24,12 @@ export const EmptyTask = {
     "sa": false,
     "su": false,
   },
-  color: COLOR.BLACK,
+  color: COLOR.GREEN,
   isFavorite: false,
   isArchive: false,
 };
 
+// 1)переделать!
 const parseFormData = (formData) => {
   const date = formData.get(`date`);
   const repeatingDays = DAYS.reduce((acc, day) => {
@@ -37,15 +38,24 @@ const parseFormData = (formData) => {
   }, {});
 
   return new TaskModel({
+    // "description": formData.get(`text`),
+    // "due_date": date ? new Date(date) : null,
+    // "repeating_days": formData.getAll(`repeat`).reduce((acc, it) => {
+    //   acc[it] = true;
+    //   return acc;
+    // }, repeatingDays),
+    // "color": formData.get(`color`),
+    // "is_favorite": false,
+    // "is_done": false,
     "description": formData.get(`text`),
-    "due_date": date ? new Date(date) : null,
-    "repeating_days": formData.getAll(`repeat`).reduce((acc, it) => {
+    "dueDate": date ? new Date(date) : null,
+    "repeatingDays": formData.getAll(`repeat`).reduce((acc, it) => {
       acc[it] = true;
       return acc;
     }, repeatingDays),
     "color": formData.get(`color`),
-    "is_favorite": false,
-    "is_done": false,
+    "isFavorite": false,
+    "isDone": false,
   });
 };
 

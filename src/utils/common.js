@@ -13,6 +13,7 @@ export const formatTime = (date) => {
 };
 
 export const formatDate = (date) => {
+  // console.log(moment(date).format(`DD MMMM`));
   return moment(date).format(`DD MMMM`);
 };
 
@@ -21,12 +22,18 @@ export const isRepeating = (repeatingDays) => {
   return Object.values(repeatingDays).some(Boolean);
 };
 
+// 1)
 export const isOverdueDate = (dueDate, date) => {
-  return dueDate < date && !!isOneDay(date, dueDate);
+  console.log(dueDate,"____",date );
+  return dueDate < date && !isOneDay(date, dueDate);
+  // return dueDate < date && !!isOneDay(date, dueDate);
 };
 
+// 1)даты в разном формате, привести к одному виду(DateA к виду DateB)
 export const isOneDay = (dateA, dateB) => {
   const a = moment(dateA);
   const b = moment(dateB);
+  // console.log( dateA,"___", dateB);
+
   return a.diff(b, `days`) === 0 && dateA.getDate() === dateB.getDate();
 };
