@@ -14,6 +14,7 @@ export const getFavoriteTasks = (tasks) => {
   return tasks.filter((task) => task.isFavorite);
 };
 
+// 1)date приходит в формате, отличном от даты с сервера
 export const getOverdueTasks = (tasks, date) => {
   return tasks.filter((task) => {
     const dueDate = task.dueDate;
@@ -39,7 +40,8 @@ export const getTasksInOneDay = (tasks, date) => {
 };
 
 export const getTasksByFilter = (tasks, filterType) => {
-  const nowDate = new Date();
+  // const nowDate = new Date();
+  const nowDate = Date.now();
 
   switch (filterType) {
     case FilterType.ALL:

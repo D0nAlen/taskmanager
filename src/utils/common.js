@@ -31,9 +31,11 @@ export const isOverdueDate = (dueDate, date) => {
 
 // 1)даты в разном формате, привести к одному виду(DateA к виду DateB)
 export const isOneDay = (dateA, dateB) => {
+  // console.log( dateA.getDate(),"___", dateB.getDate());
+
   const a = moment(dateA);
   const b = moment(dateB);
-  // console.log( dateA,"___", dateB);
 
+  // return dateA.getDate() === dateB.getDate();
   return a.diff(b, `days`) === 0 && dateA.getDate() === dateB.getDate();
 };
