@@ -15,8 +15,6 @@ export default class Task {
         this.color = data.color;
         this.isFavorite = data.isFavorite;
         this.isArchive = data.isArchive;
-
-        // console.log(data);
     }
 
     // 1)переделать!
