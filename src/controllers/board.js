@@ -58,6 +58,7 @@ export default class BoardController {
 
     this._sortComponent.setSortTypeChangeHandler(this._onSortTypeChange);
     this._tasksModel.setFilterChangeHandler(this._onFilterChange);
+    this._api = api;
   }
 
   hide() {
@@ -156,6 +157,7 @@ export default class BoardController {
           });
       }
     } else if (newData === null) {
+      console.log(oldData.id);
       this._api.deleteTask(oldData.id)
         .then(() => {
           this._tasksModel.removeTask(oldData.id);
