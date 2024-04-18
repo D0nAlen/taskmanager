@@ -10,7 +10,6 @@ export default class Task {
     }
 
     toRAW() {
-        // console.log(this.dueDate.toISOString());
         return {
             // "id": this.id,
             // "description": this.description,
@@ -21,8 +20,7 @@ export default class Task {
             // "is_archived": this.isArchive,
             "id": this.id,
             "description": this.description,
-            "dueDate": this.dueDate ? this.dueDate.toISOString() : null,
-            // "dueDate": this.dueDate.toISOString(),
+            "dueDate": this.dueDate ? this.dueDate : null,
             "repeatingDays": this.repeatingDays,
             "color": this.color,
             "isFavorite": this.isFavorite,
